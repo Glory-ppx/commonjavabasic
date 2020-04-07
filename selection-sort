@@ -1,0 +1,46 @@
+package javacommonexample;
+import java.util.Scanner;
+public class selectionsort {
+
+	public static void selection(int arr[]) {
+		for(int i=0;i<arr.length;i++) {
+			int index=i;
+			for(int j=i+1;j<arr.length;j++)
+			{ if(arr[index]>arr[j]) {
+				index = j;
+			}
+			}
+			int temp = arr[i];
+			arr[i]= arr[index];
+			arr[index]=temp;
+				
+			}
+		
+		}
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		 int n;
+		 System.out.println("\nEnter How many times to Enter ");
+		 n= sc.nextInt();
+		 int arr[] = new int[n];
+		 
+		 for(int i=0;i<n;i++)
+		 {  arr[i]= sc.nextInt();
+			 
+		 }
+		 for(int i=0;i<n;i++)
+			 System.out.print("  "+arr[i]);
+		selection(arr);
+		 System.out.println();
+		 
+		 for(int i=0;i<n;i++)
+			 System.out.print("  "+arr[i]);
+		 
+			
+			
+			}
+
+		}
