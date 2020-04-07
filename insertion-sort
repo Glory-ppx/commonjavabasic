@@ -1,0 +1,38 @@
+package javacommonexample;
+import java.util.Scanner;
+public class insertionsort {
+
+	public static void insertion(int arr[]) {
+		
+		for(int i=0;i<arr.length;i++)
+		{int j=i-1;		int key =arr[i];
+			while(j>-1&& arr[j]>key ) {
+				arr[j+1]= arr[j];
+				j--;
+			}
+			arr[j+1]=key;
+		}
+		
+	}
+		
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		 int n;
+		 System.out.println("\nEnter How many times to Enter ");
+		 n= sc.nextInt();
+		 int arr[] = new int[n];
+		 
+		 for(int i=0;i<n;i++)
+		 {  arr[i]= sc.nextInt();
+			 
+		 }
+		 for(int i=0;i<n;i++)
+			 System.out.print("  "+arr[i]);
+		insertion(arr);
+		 System.out.println();
+		 
+		 for(int i=0;i<n;i++)
+			 System.out.print("  "+arr[i]);		
+			}
+
+		}
