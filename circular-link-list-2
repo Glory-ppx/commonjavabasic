@@ -1,0 +1,66 @@
+package javacommonexample;
+import javacommonexample.CircularLink.Node;
+@SuppressWarnings("unused")
+public class CirSinMD extends CircularLink  {
+	
+	
+	public void Dm() {
+if(head == null) { 
+	return;
+	
+} else {
+	int mid = (size%2==0)?size/2:(size+1)/2 ;
+     Node curr=null,temp= head;
+     
+     if(head !=tail) {
+     for(int i=0;i<mid-1;i++) {
+    	 curr=temp;
+    	 temp = temp.next;
+     }
+     if(curr!=null) {
+    	 curr.next = temp.next;
+    	 temp = null;
+     }
+     else {
+    	 head = temp.next;
+    	 temp = null;
+    	 tail.next =head;
+     }
+     
+
+
+                     }
+     else head=tail=null;
+}
+size--;
+	
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CirSinMD sk=new CirSinMD();
+
+		sk.Add(56);
+		sk.Add(54);
+		sk.Add(55);
+		sk.Add(57);
+		sk.Add(58);
+		sk.Add(59);
+		
+		sk.display();
+		sk.Dm();
+		sk.display();
+		sk.Dm();
+		sk.display();sk.Dm();
+		sk.display();sk.Dm();
+		sk.display();
+		sk.Dm();
+		sk.display();
+		sk.Dm();
+		sk.display();
+		sk.Dm();
+		sk.display();
+		
+	
+	}
+
+}
