@@ -1,0 +1,60 @@
+package javacommonexample;
+
+public class Circular_link {
+public class Node{
+	int data;
+	Node next;
+	Node (int data){
+		this.data = data;
+	}
+	
+}
+Node head =null,tail = null;
+public void AddNode (int data ) {
+	Node newnode = new Node (data);
+	if(head == null) {
+		head = newnode;
+		tail = newnode;
+	  tail.next = head;
+	}
+	else {
+		tail.next=newnode;
+		tail = newnode ;
+		tail.next = head;
+	}
+	System.out.println("node added");
+}
+
+
+public void display() {
+	
+	Node curr = head ;
+	if(head == null)
+	{System.out .println(" EMPTY list ");
+	return;
+		
+	}
+	else {
+		
+		while(curr.next !=head ) {
+			System.out.print("  "+curr.data);
+			curr = curr.next;
+		}
+		System.out.print("  "+curr.data);
+
+	}
+}
+public static void main(String args[]) {
+Circular_link cl = new Circular_link();
+cl.AddNode(4588);
+cl.AddNode(456);
+cl.AddNode(457);
+cl.AddNode(455);
+cl.AddNode(435);
+cl.AddNode(455);
+
+cl.display();
+}
+	
+	
+}
