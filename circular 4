@@ -1,0 +1,39 @@
+package javacommonexample;
+import javacommonexample.CircularLink.Node;
+@SuppressWarnings("unused")
+public class circular_DB extends CircularLink{
+
+	public void DelB() {
+		System.out.println("   "+head.data);
+		if(head == null) {
+			return;
+		}
+		else {
+			Node curr = head;
+			head = head.next;
+			tail.next = head;
+			curr = null;
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		circular_DB sk = new circular_DB();
+		sk.Add(56);
+		sk.Add(54);
+		sk.Add(55);
+		sk.Add(57);
+		sk.Add(58);
+		sk.Add(59);
+		
+		sk.display();
+		sk.DelB();	
+		sk.display();
+		sk.DelB();	
+		sk.display();
+		sk.DelB();	
+		sk.display();
+		
+	}
+
+}
