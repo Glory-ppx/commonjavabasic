@@ -1,0 +1,86 @@
+package javacommonexample;
+import java.util.Scanner ;
+public class FCFS1 {
+	
+	
+	
+		
+		public void change(int arr[][],int row,int col) {
+			int temp [][]= new int[row][col]; 
+		int i,j,k=0;
+			
+		for(i=0;i<row;i++) {
+			for(j=i+1;j<row;j++) {
+				if(arr[i][1]> arr[j][1] && arr[i][1] != arr[j][1]  ) {
+					for( k=0;k<col;k++) {
+						temp[i][k]= arr[i][k];
+						arr[i][k]=arr[j][k];
+						arr[j][k]=temp[i][k];							
+					}
+			   }else if( arr[i][1] == arr[j][1] ) {
+				   if(arr[i][0]>arr[j][0]) {
+					   for( k=0;k<col;k++) {
+							temp[i][k]= arr[i][k];
+							arr[i][k]=arr[j][k];
+							arr[j][k]=temp[i][k];							
+						}
+				   }
+				   
+			   }
+			}
+		}
+		System.out.println("  PID   ARRIVAL-TIME  BRUST-TIME  ");
+		System.out.println("=========================");
+		for(i =0;i<row;i++) {
+			for(j=0;j<col;j++) {
+				System.out.print("  \t  "+arr[i][j] );
+				
+			}
+			System.out.println();
+			
+		}
+		System.out.println("=========================");
+		
+		
+		
+		}
+		
+		
+		
+
+		public static void main(String[] args) {
+	        FCFS1 mat = new FCFS1();
+			
+		int i,j;
+		Scanner sc = new Scanner (System.in);
+		System.out.println();
+		System.out.println("Enter row and col number ");
+		i= sc.nextInt();
+		j= sc.nextInt();
+		int arr1[][]=new int [i][j];
+		int arr2[][]=new int [i][j];
+		int row= i,col=j;
+		
+		for(i =0;i<row;i++) {
+			for(j=0;j<col;j++) {
+				arr1[i][j]=sc.nextInt();
+			}
+		}
+		System.out.println("=========================");
+		for(i =0;i<row;i++) {
+			for(j=0;j<col;j++) {
+				System.out.print("  "+arr1[i][j] );
+				
+			}
+			System.out.println();
+			
+		}
+		System.out.println("=========================");
+		mat.change(arr1,row,col);
+		
+		
+		
+		sc.close();
+		}
+
+	}
