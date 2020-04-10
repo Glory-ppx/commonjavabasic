@@ -1,0 +1,42 @@
+package javacommonexample;
+import java.util.Scanner;
+public class beautiful {
+
+	static int reverse(int a) {
+		int r,s=0;
+		while(a>0) {
+			r=a%10;
+			s=s*10+r;
+			a =a/10;
+		}
+		return s;
+	}
+	    
+		public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		int i= sc.nextInt();
+		int j= sc.nextInt();
+		int k= sc.nextInt();
+
+		 int a,c,d,count=0;
+	     for(a=i;a<=j;a++){
+	         int n=a;
+	    	 c= reverse(a);
+	     //	System.out.println(c);
+	         d= Math.abs(n-c);
+	     	//System.out.println(d+ "d");
+	         if( d%k==0 && d/k>=0 )
+	         { count++;
+
+	         }
+
+	     }
+	 	System.out.println(count);
+
+
+	 	
+		}
+		
+
+	}
+
