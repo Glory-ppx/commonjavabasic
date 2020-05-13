@@ -1,0 +1,102 @@
+import java.util.*;
+
+
+class Score1 {
+       static char p[]= new char[6];
+	public static char passview(int i) {
+		
+		return p[i];
+	}
+
+	public static float score(float[] mark) {
+		float s = 0.0f;
+		for(int i =0;i<6;i++) {
+			s+= mark[i];
+			if(mark[i]<35)
+				p[i]='F';
+			else p[i]='P';
+		}
+		
+		return s;
+	}
+	
+}
+ class Student1{
+	 private String name ;
+	 private float result;
+	 
+	 float mark[]= new float[6];
+	 String code[] = new String[6];
+	 String sub[] = new String[6];
+	 char pass[]= new char[6];
+	 
+	 public void detail() {
+		 
+		 Scanner sc = new Scanner (System.in);
+		 System.out.println("Enter Your Name : ");
+		 name = sc.nextLine();
+		 System.out.println("====================================");
+		 		 for(int i =0;i<6;i++) {
+			 System.out.println(" Enter code of "+(i+1)+"  ");
+			 code[i]= sc.nextLine(); 
+			 code[i]= sc.nextLine(); 
+			  //        sc.nextLine();
+			 System.out.println("Enter Subject of "+(i+1)+"  ");
+			 sub[i]= sc.nextLine();
+			 System.out.println("Enter Mark of subject "+(i+1)+" ");
+			 mark[i]=sc.nextFloat();
+		 }
+	    System.out.println("===================================="); 
+		result = Score1.score(mark); 
+		for(int i=0;i<6;i++) {
+			pass[i]=Score1.passview(i);
+		}
+	 }
+	 public void show() {
+		 System.out.println("====================================");
+		 System.out.println(name);
+		 System.out.println();
+		 for(int i=0;i<6;i++) {
+			 System.out.printf("%-7s%-10s %.2f %-3c",code[i],sub[i],mark[i],pass[i]); 
+			 System.out.println();
+		 }
+		 System.out.println("====================================\nTotal  "+result);
+		 System.out.println();
+	 }
+	 
+	 
+ }
+
+
+
+public class Semester1 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println(" ======= M.C.A. =======");
+		Student1 ob[] = new Student1[6];
+		
+		try {
+			String str; int sem;
+			do {System.out.println("Number of your Semister");
+			 sem = sc.nextInt();
+			sem--;
+				ob[sem]= new Student1();
+				ob[sem].detail();
+				ob[sem].show();
+				System.out.println("Want to continue ...(y/n)");
+				 str= sc.next();
+				 System.out.println(" Semister "+(sem+1));
+			}while(str.equalsIgnoreCase("y"));
+			
+		}catch(Exception e) {
+			System.out.println("input with in 1 to 6");
+			e.printStackTrace();
+		}
+		 
+		
+		
+		sc.close();
+	}
+
+}
