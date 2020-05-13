@@ -1,0 +1,122 @@
+NAME: SUJIT KUMAR SAHOO
+REGD: 1905106027
+ASSIG: JAVA
+NO.8: import java.util.*;
+class Score{
+public static float score(float mark[]) {
+float sum = 0.0f;
+for(int i =0;i<6;i++) {
+sum +=mark[i];
+}
+return sum;
+}
+}
+class Student{
+String code[]=
+{"001","002","003","004","005","006"};
+String sub[]= {"DS","JAVA","OS","SE","OB" ,"DBMS"};
+float mark[]= new float[6];
+String names[]= new String[6];
+int c=0; float marks[]=new float[10];
+Scanner bc =new Scanner(System.in);
+public void detail() {
+System.out.println("Enter Name of Student ");
+ String name =bc.nextLine();// s++;
+System.out.println("\n Enter Marks");
+System.out.println("code ----subject---");
+System.out.println("=====================");
+for(int i=0;i<6;i++) {
+System.out.println(code[i]+" "+sub[i]+"
+mark ?");
+mark[i]= bc.nextFloat();
+}
+marks[c]=Score.score(mark);
+names[c]=name;
+c++;
+}
+public void show() {
+for(int i=0;i<c;i++) {
+System.out.printf("%-15s" ,names[i]);
+for(int j=0;j<6;j++) {
+NAME: SUJIT KUMAR SAHOO
+REGD: 1905106027
+ASSIG: JAVA
+System.out.print(" "+mark[j]);
+}
+System.out.print(" "+marks[i]);
+}
+System.out.println();
+}
+}
+public class Result {
+public static void main(String[] args) {
+Scanner sc =new Scanner(System.in);
+int n;
+System.out.println();
+System.out.println("Enter How Many Students ");
+ n= sc.nextInt();
+ Student ob[]=new Student[n];
+for(int i=0;i<n;i++) {
+ob[i]=new Student();
+ob[i].detail();
+}
+System.out.println(" Names | DS | JAVA | OS
+| SE | OB | DBMS | Marks ");
+System.out.println("=================================
+====");
+for(int i=0;i<n;i++) {
+ob[i].show();
+}
+sc.close();
+}
+}
+NAME: SUJIT KUMAR SAHOO
+REGD: 1905106027
+ASSIG: JAVA
+OUTPUT :
+Enter How Many Students
+2
+Enter Name of Student
+sujit
+Enter Marks
+code ----subject---
+=====================
+001 DS mark ?
+22
+002 JAVA mark ?
+44
+003 OS mark ?
+33
+004 SE mark ?
+55
+005 OB mark ?
+33
+006 DBMS mark ?
+55
+Enter Name of Student
+subrat
+Enter Marks
+code ----subject---
+=====================
+001 DS mark ?
+44
+002 JAVA mark ?
+33
+003 OS mark ?
+55
+004 SE mark ?
+33
+005 OB mark ?
+66
+006 DBMS mark ?
+33
+NAME: SUJIT KUMAR SAHOO
+REGD: 1905106027
+ASSIG: JAVA
+Names | DS | JAVA | OS | SE | OB | DBMS |
+Marks
+=====================================
+sujit 22.0 44.0 33.0 55.0 33.0 55.0
+242.0
+subrat 44.0 33.0 55.0 33.0 66.0 33.0
+264.0
