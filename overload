@@ -1,0 +1,93 @@
+ import java.util.*;
+ 
+ class Overl {
+public static void add(int a, int b) {
+	System.out.println(a+b);
+	System.out.println(a-b);
+	try{System.out.println(a/b);}catch(Exception e) { b=1;System.out.println("Divide By Zero  "+a/b);}
+	try{System.out.println(a%b);}catch(Exception e) { b=1; System.out.println(" b cant be 0 "+a%b);}
+	System.out.println(a*b);
+}
+public static void  add(int a, int b,int c) {
+	System.out.println(a+b+c);
+	System.out.println(a-b-c);
+	try{System.out.println(a/b/c);}catch(Exception e) {System.out.println("Divide By Zero");}
+	try{System.out.println(a%b%c);}catch(Exception e) { System.out.println("Divide By Zero");}
+	System.out.println(a*b*c);
+
+}
+	
+
+public static void add(double a, double b) {
+	System.out.println(a+b);
+	System.out.println(a-b);
+	try{System.out.println(a/b);}catch(Exception e) {System.out.println("Divide By Zero");}
+	System.out.println(a*b);
+}
+public static void add(double a, double b, double c) {
+	System.out.println(a+b+c);
+	System.out.println(a-b-c);
+	try{System.out.println(a/b/c);}catch(Exception e) {System.out.println("Divide By Zero");}
+	System.out.println(a*b*c);
+	
+}
+	
+	 
+ }
+public class methodoverload {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   Scanner sc = new Scanner (System.in);
+   System.out.println("Enter how many Number you want to Enter");
+   int num = sc.nextInt();
+   System.out.println("ADDITION\nSUBTRACTION \nDIVISION \nMODULUS\nMULTIPLICATION printing....");
+   System.out.println("Enter Your Number ....");
+      if(num == 2) {
+	   String  a = sc.next();
+		String b = sc.next();
+		try { 
+			int g =Integer.parseInt(a);
+			int h =Integer.parseInt(b);
+				Overl.add(g,h);
+			 
+		  
+			}catch(NumberFormatException ex) {
+				double g =Double.parseDouble(a);
+				double h =Double.parseDouble(b);
+				 Overl.add(g, h);
+			}catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+	   
+   }
+   else if(num == 3) {
+	   String  a = sc.next();
+		String b = sc.next();
+		String c = sc.next();   
+		try {
+			int d =Integer.parseInt(a);
+			int e =Integer.parseInt(b);
+			int f = Integer.parseInt(c); 
+			Overl.add(d,e,f);
+		}catch(NumberFormatException e) {
+			
+			double l = Double.parseDouble(a);
+			double m = Double.parseDouble(b);
+			double n = Double.parseDouble(c);
+			Overl.add(l,m,n);
+		}
+	catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+	   
+   }
+   else {
+	   System.out.println("input 2 or 3 ");
+   }
+   
+	}
+}
