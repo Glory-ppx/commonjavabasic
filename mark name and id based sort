@@ -1,0 +1,104 @@
+package begin;
+
+import java.util.*;
+//import begin.StringCompare;
+import begin.StringCompare.*;
+public class Comparemark {
+
+ 	int id;
+	String name;
+	float mark;
+	
+//	private static Comparemark intitialize(Comparemark[] datasheet) {
+//		
+//		
+//	}
+	Comparemark (int id, String name, float mark) {
+		
+		this.id = id;
+		this.name = name;
+		this.mark = mark;
+	}
+	
+		
+	
+
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		StringCompare
+		Scanner sc = new Scanner (System.in);
+//		System.out.println();
+		System.out.println("Enter how many data to insert in Student : ");
+		int n = sc.nextInt(); 
+		Comparemark datasheet[]= new Comparemark[n];
+		//taking value 
+
+		for(int i = 0;i<datasheet.length;i++) {
+			System.out.println("Enter id ");
+			int id = sc.nextInt();
+			System.out.println("Enter Name ");
+			String name = sc.nextLine();
+			       name = sc.nextLine();
+			System.out.println("Enter mark ");
+			float mark = sc.nextFloat();
+			datasheet[i]= new Comparemark(id,name,mark);
+		}
+		
+		for(int i=0;i<datasheet.length;i++ ) {
+			System.out.println(" id "+datasheet[i].id+ " Name "+ datasheet[i].name+ " Mark "+ datasheet[i].mark);
+						
+		}
+		Arrange(datasheet);
+		
+		for(int i=0;i<datasheet.length;i++ ) {
+			System.out.println(" id "+datasheet[i].id+ " Name "+ datasheet[i].name+ " Mark "+ datasheet[i].mark);
+						
+		}
+		
+		
+		sc.close();
+	}
+
+
+	public static Comparemark[] Arrange(Comparemark[] marks) {
+		
+		Comparemark temp;
+		for(int i =0;i <marks.length-1 ;i++) {
+			for(int j=i+1; j<marks.length; j++) {
+				if(marks[i].mark < marks[j].mark) {
+					temp = marks[i];
+					marks[i]= marks[j];
+					marks[j] = temp;
+				}
+				else if(marks[i].mark == marks[j].mark ) {
+//				  int value = StringCompare.stringCompare(marks[i].name,marks[j].name);
+				  int value = marks[i].name.compareTo(marks[j].name);
+				  if(value < 0) {
+					  temp = marks[j];
+					  marks[j] = marks[i];
+					  marks[i]= temp;
+				  }
+				  else if(marks[i].id > marks[j].id) {
+					  
+					  temp = marks[j];
+					  marks[j] = marks[i];
+					  marks[i] = temp;
+				  }
+				  
+				}
+			}
+		}
+		
+		
+		
+		for(int i=0;i<marks.length;i++ ) {
+			System.out.println(" id "+marks[i].id+ " Name "+ marks[i].name+ " Mark "+ marks[i].mark);
+						
+		}
+		
+		return  marks;
+	}
+
+
+}
