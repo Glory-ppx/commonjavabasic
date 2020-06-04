@@ -1,0 +1,53 @@
+package begin;
+
+import java.util.Scanner;
+
+public class StringPrint {
+	public static void printString(String s1, String s2) {
+		int l1 = s1.length();
+		int l2 = s2.length();
+		int l = l1+l2;
+		String s3 = s1+" "+s2;
+		String print ;
+		if(s1.compareTo(s2) > 0) {
+			print = "Yes";
+		}else {
+			print = "No";
+		}
+		System.out.println(l+"\n" +print);
+		for(int i=0;i<=l;i++) {
+			if(i<l1) {
+				if(i== 0) {
+					char c =(char) ((char) s3.charAt(i)-32);
+					System.out.print(c);
+				}
+				else	System.out.print(s3.charAt(i));
+			}else  {int p =i-l1;
+				if(p== 1) {
+					char c =(char) ((char) s3.charAt(i)-32);
+					System.out.print(c);
+				}
+				else	System.out.print(s3.charAt(i));
+			}
+			 
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    //System.out.println();
+    System.out.println("Enter two Name ");
+    String s1 = sc.next().toLowerCase();
+    String s2 = sc.next().toLowerCase();
+   // System.out.println(s1+ " \n "+s2);
+    printString(s1,s2);
+    
+    
+    
+    
+	sc.close();	
+	}
+
+}
