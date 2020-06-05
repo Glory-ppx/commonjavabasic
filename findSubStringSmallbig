@@ -1,0 +1,76 @@
+package begin;
+import java.util.Scanner;
+
+//import begin.SmallBigsubString;
+public class printString2 {
+
+	public static void main(String[] args) {
+		//user to input string and a number 
+		System.out.println("Enter string and a Number ");
+  Scanner sc = new Scanner (System.in);
+  String s1 = sc.nextLine();
+  int n = sc.nextInt();
+//  String s2 = SmallBigsubString.reverse(s1);
+  String s2 = reverse(s1);
+System.out.println(s1+" ,  s2 =  "+s2+" , n  " +n);  
+int len = s1.length();
+int loop = len/n;
+String store[]= new String[2*loop];
+
+System.out.println(len+" ,  loop =  "+loop); 
+for(String p:store ) {
+	System.out.println(p);
+}
+int k=0,s=0;
+for(int i=0;i<loop;i++) {
+	int j=k+n;
+	store[s]= s1.substring(k,j);
+	s++;
+	store[s]= s2.substring(k,j);
+	s++;
+	k=j;
+}
+for(String p:store ) {
+	System.out.println(p);
+}
+  String newline=printting(store);
+  System.out.println("this is in main "+newline);
+  sc.close();
+		
+		
+	}
+//print small and big value with finding
+	private static String printting(String[] store) {
+		String big = store[0];
+		String small = store[0];
+		System.out.println("big "+big+" ,small "+small);
+		for(int i=1;i<store.length;i++) {
+			if((small.compareTo(store[i])) > 0 ) {
+				small = store[i];
+			}
+			if((big.compareTo(store[i])) < 0 ) {
+				big = store[i];
+			}
+			
+		}
+		System.out.println("this is in loop "+small+"\n"+big);
+		
+		return small+"\n"+big;
+	}
+	
+	
+	//reverse the string 
+	public  static String reverse(String s1) {
+		char s[]= s1.toCharArray();
+		int l = s.length;
+		System.out.println();
+		for(int i=0;i<l/2;i++) {
+			char c = s[i];
+			s[i] = s[l-(i+1)];
+			s[l-(i+1)] =c;
+		}
+			String str = String.valueOf(s);		
+		return str;
+	}
+
+}
