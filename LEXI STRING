@@ -1,0 +1,52 @@
+package begin;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class HashLexiString {
+
+	public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int count = sc.nextInt();
+    while(count-- >0) {
+    	String Diction = sc.next();
+    	String sente = sc.next();
+                    //    	System.out.println("  "+Diction +"  "+sente);	
+  //hashmap keyvalue pair  
+    HashMap<String ,Integer > order = new HashMap<String ,Integer>();
+    		//put data on hashmap dictionary 
+    for(int i = 0; i< Diction.length();i++) {
+    		String sub= Diction.substring(i, i+1);
+                  //    		System.out.println(sub);
+    		order.put(sub, i);
+             }
+                 //    System.out.print(order);
+    String arr[]= sente.split("");
+                //    for(String x : arr)
+                //    System.out.print(" "+x);
+//    insertion sort
+   for(int i=0;i< arr.length;i++) {
+	   
+	   String s  = arr[i];
+	   int j = i-1;
+	   
+	   
+	   while(j>-1 &&(order.get(arr[j]) >order.get(s)) ) {
+		   arr[j+1] = arr[j];
+     		 j--;  
+	   }
+	   arr[j+1] = s;
+	   
+   }
+   System.out.println();
+   //printing sub arrey
+   for(String x : arr)
+	    System.out.print(" "+x);
+    
+    }
+  
+	sc.close();	
+	}
+
+}
