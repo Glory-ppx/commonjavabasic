@@ -1,0 +1,93 @@
+package begin;
+
+import java.util.Scanner;
+
+public class cipherText {
+
+	public static void creatCipher(String cip,int n) {
+		int len = cip.length();
+		char arr[] = cip.toCharArray();
+		char chipx[][] = new char[n][len] ;
+		int dir =-1,row =0,col=0,lett =0;
+		
+		for(int i=0;i<len;i++) {
+			chipx[row][col++]= arr[lett++];
+			if(row == 0 || row == n-1) {
+				dir*=-1;
+				
+			}
+			row = row+dir;
+		}
+		for(int i = 0;i<n;i++) {
+			for(int j=0;j<len;j++) {
+				if(chipx[i][j]>='a' && chipx[i][j] <= 'z' || chipx[i][j]>='A' && chipx[i][j] <= 'Z')
+				System.out.print(" "+chipx[i][j]);
+			}
+			
+		}
+		
+	}
+   public static void decryptCipher(String cip,int n) {
+	   int len = cip.length();
+		char arr[] = cip.toCharArray();
+		char chipx[][] = new char[n][len] ;
+		int dir =-1,row =0,col=0,lett =0;
+		
+		for(int i=0;i<len;i++) {
+			chipx[row][col++]='*';
+			if(row == 0 || row == n-1) {
+				dir*=-1;
+				
+			}
+			row = row+dir;
+		}
+		
+		//value initialize
+		for(int i = 0;i<n;i++) {
+			for(int j=0;j<len;j++) {
+				if(chipx[i][j]=='*')
+					chipx[i][j]=arr[lett++];
+//				System.out.print(chipx[i][j]);
+			
+			}
+			
+		}System.out.println();
+		//value print
+		dir =-1;row =0;
+		col=0;
+		lett =0;
+		
+		for(int i=0;i<len;i++) {
+			System.out.print(" "+chipx[row][col++]);
+			if(row == 0 || row == n-1) {
+				dir*=-1;
+				
+			}
+			row = row+dir;
+		}
+		System.out.println();
+		
+	}
+	
+	public static void main(String[] args) {
+
+		//user input  ="helloworld" depth =5
+		//oolsgyngehe 
+		//helloworld
+		Scanner sc = new Scanner(System.in) ;
+		System.out.println();
+		System.out.println("Enter your String and depth ");
+		String text = sc.nextLine();
+		int depth = sc.nextInt();
+		System.out.println("Enter 1 for ciphertext and 2 for plain text ");
+			int num = sc.nextInt();
+		if(num == 1)
+		creatCipher(text,depth);
+		else
+			decryptCipher(text,depth);
+		
+		sc.close();
+		
+	}
+
+}
