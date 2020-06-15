@@ -1,0 +1,84 @@
+package namesocre;
+
+import java.util.Comparator;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Student {
+    
+    int score;
+    String name;
+    Student(String name, int score){
+        this.name = name;
+        this.score = score;
+    }
+    public String getName(){
+       return name;
+    }
+    public Integer getScore(){
+        return score;
+    } 
+    @Override
+    public String toString(){
+        return name+"  "+score;
+    }
+    
+}
+
+
+class comnpareTwo implements Comparator<Student>{
+    public int  compare(Student a, Student b){
+        int scoreval = b.getScore().compareTo(a.getScore());
+        int nameval = a.getName().compareTo(b.getName());
+       if(scoreval == 0){
+           return nameval;
+       }
+    else
+           return scoreval;
+    
+    }
+}
+
+public class NameSocre {
+
+
+    public static void main(String[] args) {
+        int a=3;
+        Scanner sc = new Scanner(System.in);
+        Student ob[] = new Student [a];
+        
+        ArrayList<Student> ar = new ArrayList<Student>();
+        for(int i=0;i<a;i++){
+            System.out.println("\n Enter name and Score ");
+            String s1 = sc.next();
+            int score = sc.nextInt();
+            ob[i] = new Student(s1, score);
+            ar.add(ob[i]);
+            
+        }
+        
+        for(int i =0 ;i<a;i++){
+            
+            System.out.println(ar.get(i));
+        }
+        
+        //sorting 
+        
+            System.out.println("-----sorting -------");
+        Collections.sort(ar,new comnpareTwo ());
+        for(int i =0 ;i<a;i++){
+            
+            System.out.println(ar.get(i));
+        }
+        
+        
+            sc.close();
+            
+     
+
+
+
+    }
+    
+}
