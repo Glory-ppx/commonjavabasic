@@ -1,0 +1,54 @@
+
+package stringchar;
+import java.util.Scanner;
+public class Stringchar {
+
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+     Scanner sc = new Scanner(System.in);
+    String a,b;    
+    System.out.println();
+    System.out.println(" Enter a string ");
+    a = sc.next();
+    System.out.println("Enter b string ");
+    b = sc.next();
+    String first = arraysort( a);
+   String second = arraysort( b);
+   
+ if(first.equals(second)){
+     System.out.println(" Anagram ");
+ }else
+        System.out.println(" Not Anagram ");
+  
+  
+    
+    
+    
+    }
+    
+    
+       private static String arraysort( String arr1 ) {
+          char []arr = arr1.toCharArray();
+    
+    int len = arr.length;
+    
+    int i,j;
+    char temp;
+  for(i =0;i<len;i++){
+      temp =arr[i];  
+      j= i-1;
+      
+      while(j>-1 && arr[j] >temp){
+          arr[j+1] = arr[j];
+          j--;
+      }
+      arr[j+1]= temp;
+      
+    }
+    
+  return String.valueOf(arr);
+      }  
+  
+    
+}
