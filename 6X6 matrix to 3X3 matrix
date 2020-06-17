@@ -1,0 +1,114 @@
+
+package arrayssum;
+import java .util.Scanner;
+public class ArrayVal {
+
+   static  byte c=0;
+   static byte store[] = new byte[16];
+   
+    public static void main(String[] args) {
+
+Scanner sc = new Scanner (System.in);
+
+//System.out.println();
+byte n =6;
+byte Array[][] = new byte [n][n];
+System.out.println("Enter  value in 6X6 Array ");
+for(byte i = 0;i<n;i++){
+    for( byte j=0;j<n;j++){
+    Array[i][j] = sc.nextByte();
+        
+    }
+    
+}
+//1 0 2 2 2 0    
+//1 1 1 1 1 0
+//1 3 1 3 2 1
+//1 1 1 1 1 1 
+//1 1 1 1 1 0
+//0 0 1 1 0 1
+
+//1 1 0 1 0 1
+//0 0 1 0 1 0
+//0 0 0 1 1 1
+//1 1 0 0 1 1
+//1 0 1 0 1 1
+//1 0 1 1 0 0
+
+func(Array);
+
+sc.close();
+
+
+    }
+
+    private static void func(byte[][] Array) {
+     byte a=0,b=0,count =0, mid,n;
+     byte array[][] = new byte[3][3];
+     mid =  (byte)(Array[0].length/2+1);
+     n= (byte)(Array[0].length);
+    
+    for(byte i=0;i<mid;i++){
+        for(byte j=0;j<mid;j++){
+            for(byte l=0;l<3;l++ ){
+                for(byte k=0;k<3;k++){
+            array[a+l][b+k]= Array[i+l][j+k];
+                      }
+     }
+        a=0; b=0;
+        printarray(array);
+        count++;
+        if(count == 4){
+            break;
+        }
+      }
+        count =0;
+        
+    }
+    
+    
+    }
+
+    private static void printarray(byte[][] array) {
+   byte n = (byte) array[0].length;
+   byte sum =0,p =16;
+   
+    
+      for(byte i=0;i<n;i++){
+    for(byte j=0 ;j<n;j++){
+        if(i ==1){
+            sum +=array[1][1];
+             System.out.print("       "+array[1][1]);
+             break;
+            
+        }else {
+    System.out.print("   "+array[i][j]);
+    sum += array[i][j];
+        }
+    }
+    System.out.println();
+} 
+      ArrayVal.store[ArrayVal.c] = sum;
+      
+    System.out.println("array:   "+ArrayVal.store[ArrayVal.c] );
+      ArrayVal.c++;
+       System.out.println(ArrayVal.c);
+       if(ArrayVal.c == 16){
+           printstore(ArrayVal.store);
+       }
+    System.out.println();
+    }
+
+    private static void printstore(byte[] store) {
+       
+    byte n = (byte)store.length;
+   byte  big = store[0];
+   for(byte i=0;i<n;i++ ){
+       if(big<store[i])
+           big = store[i];
+   }
+   System.out.println("   BiG :  "+big);
+    
+    }
+    
+}
