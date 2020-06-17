@@ -1,4 +1,3 @@
-
 package arrayssum;
 import java .util.Scanner;
 public class ArrayVal {
