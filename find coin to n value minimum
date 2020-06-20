@@ -1,0 +1,73 @@
+
+    package codevita;
+
+    import java.math.*;
+    import java.util.*;
+    public class FindPrime {
+
+    public static void main(String args[]){
+    Scanner sc = new Scanner (System.in);
+
+    short T = sc.nextShort();
+    short Array[] = new short[T];
+    for(short i =0; i<T ;i++){
+
+    Array[i] = sc.nextShort();
+
+    }
+    pass (Array);
+
+
+
+
+    }// main
+
+    private static void pass(short array[]) {
+    short  l =  (short) array.length;
+
+
+      for(short i =0;i<l;i++){
+
+          
+
+              Vector <Short> v = new Vector<>();
+             
+        for(short p =1 ;p<= array[i] ; p++){
+            
+        boolean   flag = true;
+        
+       for(short k =2; k<=Math.sqrt(p); k++){
+           
+           if(p %k ==0){
+              flag = false; 
+              break;
+           }
+
+         
+       }
+       
+         if(flag)
+             v.add(p);
+
+//          System.out.println();
+        }
+        System.out.println(v);
+        countcoin(v, array[i]);
+             
+        }
+  
+      }
+
+    private static void countcoin(Vector<Short> v, short ar) {
+  int      sum =0, count =0,i=0;
+   do{
+       sum += v.get(i);
+       i++;count++;
+   }while(sum < ar);
+  
+    System.out.println(count);
+    }
+    
+ }
+    
+  
