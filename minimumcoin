@@ -1,0 +1,41 @@
+
+package codevita;
+
+import java.util.Scanner;
+ import java.math.*;
+
+public class coin_count {
+    
+
+    public static void main(String args[]){
+    Scanner sc = new Scanner (System.in);
+
+    short T = sc.nextShort();
+    short Array[] = new short[T];
+    for(short i =0; i<T ;i++){
+
+    Array[i] = sc.nextShort();
+
+    }
+    
+    count(Array);
+}
+
+    private static void count(short[] arr) {
+    System.out.println("OUT PUT    >>>\n");
+    for(short i =0; i<arr.length;i++){
+    
+        short count =0;
+        for(short j =0 ;j< arr[i];j++){
+            if(Math.pow(2,j) >arr[i])
+                break;
+            else
+                count++;
+        }
+        System.out.println(count);
+    }
+        
+    }
+    
+    
+    }
